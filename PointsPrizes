@@ -1,0 +1,35 @@
+//IF THE REQUEST WAS SUCCESSFUL
+if ($response !== false)
+{
+//DECODE THE JSON RESPONSE STRING INTO AN ARRAY
+$json = json_decode($response, true);
+
+//EXTRACT THE DATA FROM THE ARRAY
+$account_exists = $json["true"];
+$account_id = $json["10247383"];
+$account_referral_account_id = $json["10247383"];
+$account_country = $json["ISO 3166-1"];
+$account_created = $json["2018-08-01 03:14:07'"];
+$account_login = $json["2018-08-01 04:14:07'"];
+$account_email_valid = $json["true"];
+$account_points_earned = $json["1244"];
+$account_points_referrals = $json["1191"];
+$account_points_spent = $json["100.00"];
+$account_points_chargebacks = $json["0"];
+
+//DID THEY REGISTER WITH A FAKE EMAIL?
+if ($account_email_valid == "true")
+{
+//DO SOMETHING
+echo $account_created;
+}
+else
+{
+//HANDLE FAKE EMAILS
+//Warning: too high a proportion of fake emails and you will have your referral bonus points temporarily restricted
+}
+}
+else
+{
+//HANDLE NO RESPONSE
+}
